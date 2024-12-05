@@ -14,6 +14,7 @@ import { usersService } from "../../../../../../core/services/users/@index";
 import { currencyToNumber } from "../../../../../../core/utils/currencyToNumber";
 import { LABEL_ERRORS } from "../../../../../../core/utils/labelErrors";
 import { useBankAccounts } from "../../../Account/hooks/useBankAccounts";
+import { TransactionTypes } from "../../types/transaction";
 
 const schema = z.object({
   bankAccountId: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
@@ -69,9 +70,10 @@ export function useNewTransactionController() {
     mutationFn: async (params: FormData) => {
       const payload = {
         ...params,
-        type: newTransactionType,
+        type: TransactionTypes.EXPENSE,
         value: currencyToNumber(params.value),
       };
+
       await transactionService.create(payload);
     },
   });
@@ -119,6 +121,7 @@ export function useNewTransactionController() {
       closeNewTransactionModal();
 
       queryClient.invalidateQueries({ queryKey: ["transactions", "get-all"] });
+      queryClient.invalidateQueries({ queryKey: ["bank-accounts", "get-all"] });
 
       toast.success(
         `${isExpense ? "Despesa" : "Receita"} criada com sucesso.`

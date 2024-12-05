@@ -10,14 +10,12 @@ import { TransactionFilterRequest } from "./types/transactionRequest";
 export function useTransactionsController() {
   const { transactionBeingEdited } = useTransactions();
   const { areValuesVisible, toggleVisibility } = useDashboard();
-
   // filters
   const [filters, setFilters] = useState<TransactionFilterRequest>({
     month: new Date().getMonth(),
     year: new Date().getFullYear(),
     type: null,
   });
-  // to components: [swiper month, filtersModal]
   const [sliderState, setSliderState] = useState(() => ({
     isBeginning: filters.month <= 0,
     isEnd: filters.month >= 11,
@@ -31,7 +29,6 @@ export function useTransactionsController() {
     refetch,
   } = useAccountTransactions(filters);
 
-  // TODO: see here the cool technology
   function handleChangeFilter<TFilter extends keyof TransactionFilterRequest>(
     filter: TFilter
   ) {
@@ -64,7 +61,7 @@ export function useTransactionsController() {
     //
     transactions: transactions || [],
     isLoading,
-    isInitialLoading, // to first get
+    isInitialLoading,
     //
     sliderState,
     handleSliderState,

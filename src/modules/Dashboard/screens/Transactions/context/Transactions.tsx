@@ -1,8 +1,6 @@
 import { createContext, useCallback, useState } from "react";
-import {
-  Transaction,
-  TransactionTypes,
-} from "../../../../../core/services/transactions/@type";
+//
+import { Transaction, TransactionTypes } from "../types/transaction";
 
 type TransactionsContextValue = {
   showNewTransactionModal: boolean;
