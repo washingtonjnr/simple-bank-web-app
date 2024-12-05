@@ -1,0 +1,153 @@
+{
+  "users": [
+    {
+      "id": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab",
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "password": "password123",
+      "document": "498.908.728-38"
+    }
+  ],
+  "bankAccounts": [
+    {
+      "id": "3c3f6c7g-f8c3-6f4f-d3h9-4d45678901cd",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab",
+      "name": "Magnum Bank",
+      "currentBalance": 1378,
+      "type": "CHECKING",
+      "transactions": [
+        "4d4f7d8h-g9d4-7f5g-e4i0-5e56789012de"
+      ]
+    }
+  ],
+  "transactions": [
+    {
+      "id": "4d4f7d8h-g9d4-7f5g-e4i0-5e56789012de",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab",
+      "bankAccountId": "3c3f6c7g-f8c3-6f4f-d3h9-4d45678901cd",
+      "name": "Mercado",
+      "value": 812,
+      "date": "2024-12-01T10:00:00.000Z",
+      "type": "EXPENSE",
+      "paymentType": "PIX",
+      "document": "123.456.789-00",
+      "favoredName": "João Silva",
+      "bank": "Banco do Brasil",
+      "agency": "1234",
+      "account": "56789-0",
+      "pixKey": "joaosilva123@pix.com"
+    },
+    {
+      "id": "4d4f7d8h-g9d4-7f5g-e4i0-5e56789012de",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab",
+      "bankAccountId": "3c3f6c7g-f8c3-6f4f-d3h9-4d45678901cd",
+      "name": "Tigrinho",
+      "value": 26,
+      "date": "2024-11-01T10:00:00.000Z",
+      "type": "INCOME",
+      "paymentType": "TED",
+      "document": "12.345.678/0001-90",
+      "favoredName": "Tigrinho Comércio Ltda.",
+      "bank": "Itaú",
+      "agency": "5678",
+      "account": "987654-3",
+      "pixKey": "tigrinhocomercio@pix.com"
+    },
+    {
+      "id": "5d5e8d9i-h2d7-3a5f-e6i0-6e67890123fg",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab",
+      "bankAccountId": "4d4f7d8h-g9d4-7f5g-e4i0-6e67890123fg",
+      "name": "Salário",
+      "value": 2000,
+      "date": "2024-12-05T09:00:00.000Z",
+      "type": "INCOME",
+      "paymentType": "PIX",
+      "document": "123.456.789-00",
+      "favoredName": "Maria Oliveira",
+      "bank": "Caixa Econômica",
+      "agency": "4321",
+      "account": "12345-6",
+      "pixKey": "maria.oliveira@pix.com"
+    },
+    {
+      "id": "6e7f8g9h-i1j3-4k5l-m6n0-7e78901234hi",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab",
+      "bankAccountId": "5f5e8g9h-h8j7-2k5l-m9n8-8i78901234kj",
+      "name": "Aluguel",
+      "value": 1200,
+      "date": "2024-12-05T11:00:00.000Z",
+      "type": "EXPENSE",
+      "paymentType": "TED",
+      "document": "12.345.678/0001-90",
+      "favoredName": "Imobiliária São José",
+      "bank": "Bradesco",
+      "agency": "9876",
+      "account": "54321-0",
+      "pixKey": "imobiliariasaojose@pix.com"
+    },
+    {
+      "id": "13a0",
+      "bankAccountId": "3c3f6c7g-f8c3-6f4f-d3h9-4d45678901cd",
+      "name": "Mercado",
+      "value": 150,
+      "paymentType": "PIX",
+      "date": "2024-12-05T04:44:45.650Z",
+      "document": "49890872838",
+      "favoredName": "Junior",
+      "bank": "654654",
+      "agency": "5456",
+      "account": "4554654",
+      "pixKey": "Não tem, pai",
+      "type": "EXPENSE",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab"
+    },
+    {
+      "id": "a495",
+      "bankAccountId": "3c3f6c7g-f8c3-6f4f-d3h9-4d45678901cd",
+      "name": "Mercado",
+      "value": 120,
+      "paymentType": "TED",
+      "date": "2024-12-05T04:48:06.169Z",
+      "document": "49890872838",
+      "favoredName": "Junior",
+      "bank": "654654",
+      "agency": "5456",
+      "account": "4554654",
+      "pixKey": "Não tem, pai",
+      "type": "EXPENSE",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab"
+    },
+    {
+      "id": "051c",
+      "bankAccountId": "3c3f6c7g-f8c3-6f4f-d3h9-4d45678901cd",
+      "name": "Mercado",
+      "value": 1,
+      "paymentType": "TED",
+      "date": "2024-12-05T04:48:29.296Z",
+      "document": "49890872838",
+      "favoredName": "Junior",
+      "bank": "654654",
+      "agency": "5456",
+      "account": "4554654",
+      "pixKey": "Não tem, pai",
+      "type": "EXPENSE",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab"
+    },
+    {
+      "id": "8959",
+      "bankAccountId": "3c3f6c7g-f8c3-6f4f-d3h9-4d45678901cd",
+      "name": "Bala 7 belo",
+      "value": 1,
+      "paymentType": "PIX",
+      "date": "2024-12-05T04:48:59.610Z",
+      "document": "49890872838",
+      "favoredName": "Junior",
+      "bank": "654654",
+      "agency": "5456",
+      "account": "4554654",
+      "pixKey": "Não tem, pai",
+      "type": "EXPENSE",
+      "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab"
+    }
+  ]
+}
