@@ -29,7 +29,7 @@ const schema = z.object({
   bank: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
   agency: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
   account: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
-  pixKey: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
+  pixKey: z.string({ required_error: LABEL_ERRORS.EMPTY }),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -78,12 +78,16 @@ export function useNewTransactionController() {
 
   const validatePassword = async () => {
     try {
-      const passwordIsValid = await usersService.validatePassword(userPassword);
+      const isValid = await trigger();
 
-      if(passwordIsValid) {
-        await handleCreateTransaction();
-      } else {
-        toast.error("Senha inválida. Tente novamente.");
+      if(isValid) {
+        const passwordIsValid = await usersService.validatePassword(userPassword);
+
+        if(passwordIsValid) {
+          await handleCreateTransaction();
+        } else {
+          toast.error("Senha inválida. Tente novamente.");
+        }
       }
     } catch (error) {
       toast.error("Senha inválida. Tente novamente.");
@@ -91,11 +95,12 @@ export function useNewTransactionController() {
   };
 
   const handleOpenPasswordModal = async () => {
-    closeNewTransactionModal();
 
     const isValid = await trigger();
 
     if (isValid) {
+      closeNewTransactionModal();
+
       setPasswordModalOpen(true);
     }
   };

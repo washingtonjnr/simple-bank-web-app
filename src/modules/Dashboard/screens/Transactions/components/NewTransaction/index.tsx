@@ -42,6 +42,8 @@ export function NewTransactionModal() {
           className="text-left flex flex-col justify-center"
           onSubmit={(e) => {
             e.preventDefault();
+            e.stopPropagation();
+            //
             validatePassword();
           }}
         >
@@ -67,6 +69,8 @@ export function NewTransactionModal() {
           className="text-left"
           onSubmit={(e) => {
             e.preventDefault();
+            e.stopPropagation();
+            //
             handleOpenPasswordModal();
           }}
         >
