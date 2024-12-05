@@ -7,6 +7,7 @@ import { DashLayout } from "../../shared/layouts/DashLayout";
 // Views
 import { Dashboard } from "../../modules/Dashboard";
 import { Login } from "../../modules/Login";
+import { Register } from "../../modules/Register";
 
 export default function Router() {
   return (
@@ -16,6 +17,7 @@ export default function Router() {
         <Route element={<AuthGuard isPrivate={false} />}>
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Route>
         </Route>
 

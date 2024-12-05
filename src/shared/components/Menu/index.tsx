@@ -18,7 +18,7 @@ export function Menu() {
     <Dropdown.Root>
       <Dropdown.Trigger>
         <div className="flex items-center justify-center w-12 h-12 rounded-full bg-red-50 ">
-          <span className="text-red-900 font-medium" title={user.name}>
+          <span className="text-red-500 font-medium" title={user.name}>
             {letters}
           </span>
         </div>

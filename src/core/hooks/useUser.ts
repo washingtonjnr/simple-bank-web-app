@@ -9,7 +9,8 @@ export function useUser(signedIn: boolean) {
     queryKey: ["users"],
     queryFn: () => usersService.me(),
     enabled: signedIn,
-    staleTime: Infinity,
+    staleTime: 0,
+    gcTime: 0
   });
 
   return {

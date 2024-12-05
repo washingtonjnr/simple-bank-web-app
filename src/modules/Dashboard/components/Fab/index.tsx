@@ -17,7 +17,7 @@ export function Fab() {
     <div className="fixed right-4 bottom-4">
       <Dropdown.Root>
         <Dropdown.Trigger>
-          <div className="mt-1 w-14 h-14 flex items-center justify-center bg-red-900 rounded-full shadow-lg">
+          <div className="mt-1 w-14 h-14 flex items-center justify-center bg-red-500 rounded-full shadow-lg">
             <PlusIcon className="text-white w-6 h-6" />
           </div>
         </Dropdown.Trigger>

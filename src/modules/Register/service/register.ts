@@ -16,9 +16,23 @@ export async function register(params: RegisterRequest): Promise<{ accessToken: 
     throw new Error("Já existe um usuário com o e-mail ou CPF informado.");
   }
 
-  const { data: newUser } = await api.post<RegisterResponse>("/users", params);
+  try {
+    const { data: newUser } = await api.post<RegisterResponse>("/users", params);
 
-  const accessToken = await jwtService.generateToken(newUser);
+    const accessToken = await jwtService.generateToken(newUser);
 
-  return { accessToken };
+    const bankAccountData = {
+      userId: newUser["id"],
+      name: "Magnum Bank",
+      currentBalance: 1000,
+      type: "CHECKING",
+      transactions: [],
+    };
+
+    await api.post("/bankAccounts", bankAccountData);
+
+    return { accessToken };
+  } catch (error) {
+    throw new Error("Erro ao criar conta.");
+  }
 }

@@ -6,6 +6,27 @@
       "email": "johndoe@example.com",
       "password": "password123",
       "document": "498.908.728-38"
+    },
+    {
+      "id": "1696",
+      "name": "Washington Dois",
+      "email": "washington+1@mag.com",
+      "password": "washington",
+      "document": "498.908.728-38 "
+    },
+    {
+      "id": "00e1",
+      "name": "Junin do carro",
+      "email": "washington.carvalho.junior@gmail.com",
+      "password": "aaaaaaaaaaaaaaaaaaaaaa",
+      "document": "906.688.570-05 "
+    },
+    {
+      "id": "4a24",
+      "name": "Junior Araujo",
+      "email": "jr@mag.com",
+      "password": "junior123",
+      "document": "819.785.930-23 "
     }
   ],
   "bankAccounts": [
@@ -18,6 +39,30 @@
       "transactions": [
         "4d4f7d8h-g9d4-7f5g-e4i0-5e56789012de"
       ]
+    },
+    {
+      "id": "3c3f6c7g-f8c3-6f4f-d3h9-465465465",
+      "userId": "1696",
+      "name": "Magnum Bank",
+      "currentBalance": 1000,
+      "type": "CHECKING",
+      "transactions": []
+    },
+    {
+      "id": "b924",
+      "userId": "00e1",
+      "name": "Magnum Bank",
+      "currentBalance": 0,
+      "type": "CHECKING",
+      "transactions": []
+    },
+    {
+      "id": "3dbc",
+      "userId": "4a24",
+      "name": "Magnum Bank",
+      "currentBalance": 900,
+      "type": "CHECKING",
+      "transactions": []
     }
   ],
   "transactions": [
@@ -148,6 +193,22 @@
       "pixKey": "Não tem, pai",
       "type": "EXPENSE",
       "userId": "1b10f5e4-d7a1-4f3d-b1f7-1c23456789ab"
+    },
+    {
+      "id": "3b17",
+      "bankAccountId": "3dbc",
+      "name": "Agiota",
+      "value": 100,
+      "paymentType": "PIX",
+      "date": "2024-12-05T17:02:05.917Z",
+      "document": "819.785.930-23",
+      "favoredName": "Agiota Luis",
+      "bank": "46546554654",
+      "agency": "465465",
+      "account": "456465",
+      "pixKey": "4654654654das54ds5da",
+      "type": "EXPENSE",
+      "userId": "4a24"
     }
   ]
 }

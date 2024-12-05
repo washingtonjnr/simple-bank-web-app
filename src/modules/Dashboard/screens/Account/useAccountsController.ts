@@ -28,8 +28,6 @@ export function useAccountController() {
   const { data, error, isFetching } = useBankAccounts();
 
   const currentBalance: number = useMemo<number>(() => {
-    console.log("data");
-    console.log(data);
     const balance: number = data.reduce((acc, bankAccount) => {
       return acc + (bankAccount.currentBalance || 0);
     }, 0);

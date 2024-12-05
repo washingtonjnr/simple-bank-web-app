@@ -42,7 +42,7 @@ export function Transactions() {
   );
 
   return (
-    <div className="w-full flex flex-col rounded-2xl py-6 px-3 md:p-10 md:h-full text-gray-900 bg-gray-100">
+    <div className="w-full flex flex-col rounded-2xl py-6 px-3 md:p-10 md:h-full text-gray-900 bg-gray-100 overflow-visible">
       <NewTransactionModal />
 
       {transactionBeingEdited && <TransactionDetailsModal />}
@@ -93,7 +93,7 @@ export function Transactions() {
           {isLoading && loadingComponent}
 
           {!isLoading && (
-            <div className="mt-4 space-y-3 flex-1 md:overflow-y-auto">
+            <div className="mt-4 space-y-3 flex-1 md:overflow-y-auto overflow-visible">
               {transactions.map((transaction) => {
                 return (
                   <TransactionCard

@@ -21,7 +21,7 @@ export function Account() {
   } = useAccountController();
 
   return (
-    <div className="flex flex-col justify-between gap-10 rounded-2xl py-6 px-3 md:p-10 md:h-full text-white bg-red-900">
+    <div className="flex flex-col justify-between gap-10 rounded-2xl py-6 px-3 md:p-10 md:h-full text-white bg-red-500">
       {isLoading && (
         <div className="flex flex-1 justify-center items-center my-10">
           <Spinner />

@@ -29,7 +29,7 @@ export function useLoginController() {
   } = useForm<FormData>({
     defaultValues: {
       email: "johndoe@example.com",
-      password: "password123"
+      // password: "password123"
     },
     resolver: zodResolver(schema),
   });

@@ -30,6 +30,7 @@ type FormData = z.infer<typeof schema>;
 
 export function useResgisterController() {
   const {
+    control,
     formState: { errors },
     register,
     handleSubmit: hookFormHandleSubmit
@@ -57,5 +58,5 @@ export function useResgisterController() {
     }
   });
 
-  return { isPending, errors, register, handleSubmit };
+  return { control, isPending, errors, register, handleSubmit };
 }

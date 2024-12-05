@@ -23,7 +23,7 @@ export function TransactionCard({ showBalance, transaction }: CardItemProps) {
   return (
     <div
       role="button"
-      className="flex flex-1 bg-white justify-between items-center p-2 md:p-4 rounded-2xl gap-3 md:gap-4"
+      className="flex flex-1 bg-white justify-between items-center p-2 md:p-4 rounded-2xl gap-3 md:gap-4 transition-all transform hover:shadow-md duration-300"
       onClick={() => openEditTransactionModal(transaction)}
     >
       <div className="flex flex-1 items-center">
