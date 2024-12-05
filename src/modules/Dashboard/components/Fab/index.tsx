@@ -14,7 +14,7 @@ export function Fab() {
   const { openNewTransactionModal } = useTransactions();
 
   return (
-    <div className="fixed right-4 bottom-4">
+    <div className="fixed right-4 bottom-4 z-10">
       <Dropdown.Root>
         <Dropdown.Trigger>
           <div className="mt-1 w-14 h-14 flex items-center justify-center bg-red-500 rounded-full shadow-lg">

@@ -1,4 +1,3 @@
-import { CrossCircledIcon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 import InputMask from "react-input-mask";
 import { Input } from "../..";
@@ -40,15 +39,10 @@ const InputDocument: React.FC<InputDocumentProps> = ({
         }}
         {...props}
       >
-        {(inputProps) => <Input {...inputProps} {...props} label={label} />}
+        {(inputProps) => (
+          <Input {...inputProps} {...props} label={label} error={error} />
+        )}
       </InputMask>
-
-      {error && (
-        <div className="flex mt-1 gap-2 items-center text-red-900 text-xs">
-          <CrossCircledIcon />
-          <span>{error}</span>
-        </div>
-      )}
     </div>
   );
 };

@@ -15,8 +15,8 @@ export function AuthLayout() {
         />
       </div>
 
-      <div className="w-full h-full lg:w-1/2 p-4 gap-8 bg-gray-50 flex justify-center overflow-auto ">
-        <div className="px-8 w-full max-w-[468px] flex-col items-center justify-center">
+      <div className="w-full h-full lg:w-1/2 p-4 gap-8 bg-gray-50 flex justify-center overflow-auto items-center">
+        <div className="px-0 w-full max-w-[468px] flex-col items-center justify-center">
           <Logo className="text-gray-500 mx-auto mb-4" />
 
           <Outlet></Outlet>

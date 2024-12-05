@@ -4,7 +4,6 @@ import { bankAccountService } from "../../Account/service/@index";
 //
 import { TransactionRequest } from "../types/transactionRequest";
 
-// TODO: seria legal se desse para fazer algo atômico
 export async function create(payload: TransactionRequest) {
   const userId = await getUserIdFromToken();
 
@@ -17,6 +16,7 @@ export async function create(payload: TransactionRequest) {
   const transactionPayload = {
     ...payload,
     userId,
+    type: "EXPENSE"
   };
 
   const { data } = await api.post("/transactions", transactionPayload);

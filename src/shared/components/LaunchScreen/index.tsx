@@ -18,9 +18,9 @@ export function LaunchScreen({ isLoading }: LaunchScreenProps) {
       leaveTo="opacity-0"
     >
       <div className="flex flex-col items-center justify-center gap-4 w-full h-full fixed top-0 left-0 bg-red-500">
-        <Logo color="#FFF" />
+        <Logo className="absolute" color="#FFF" />
 
-        <Spinner className="mt-2 w-6 h-6" />
+        <Spinner className="w-16 h-16" />
       </div>
     </Transition>
   );

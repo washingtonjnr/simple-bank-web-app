@@ -1,5 +1,4 @@
 // Components
-import { Button } from "../../../../../../shared/components/Button";
 import { Input } from "../../../../../../shared/components/Input";
 import { InputCurrency } from "../../../../../../shared/components/Input/types/Currency";
 import { InputDatePicker } from "../../../../../../shared/components/Input/types/DatePicker";
@@ -88,10 +87,6 @@ export function TransactionDetailsModal() {
             currentValue={transaction.date}
             onChange={() => {}}
           />
-
-          <Button className="mt-4" onClick={closeEditTransactionModal}>
-            Fechar
-          </Button>
         </div>
       </form>
     </Modal>

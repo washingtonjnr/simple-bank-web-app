@@ -9,6 +9,8 @@ import { useTransactions } from "../../hooks/useTransactions";
 // Service
 import { transactionService } from "../../service/@index";
 // Utils
+import { useState } from "react";
+import { usersService } from "../../../../../../core/services/users/@index";
 import { currencyToNumber } from "../../../../../../core/utils/currencyToNumber";
 import { LABEL_ERRORS } from "../../../../../../core/utils/labelErrors";
 import { useBankAccounts } from "../../../Account/hooks/useBankAccounts";
@@ -35,49 +37,73 @@ type FormData = z.infer<typeof schema>;
 export function useNewTransactionController() {
   const queryClient = useQueryClient();
   //
+  const [userPassword, setUserPassword] = useState<string>("");
+  const [passwordModalOpen, setPasswordModalOpen] = useState(false);
+  //
   const {
     newTransactionType,
     showNewTransactionModal,
     closeNewTransactionModal,
   } = useTransactions();
-  // Although the Accounts component makes the same call, it will not be redone.
-  const {
-    data: bankAccounts,
-    isFetching: isFetchingBankAccounts,
-  } = useBankAccounts();
+  //
+  const { data: bankAccounts } = useBankAccounts();
+  //
   const isExpense = newTransactionType === "EXPENSE";
 
   const {
-    reset,
-    register,
     control,
-    handleSubmit: handleFormSubmit,
+    reset,
+    trigger,
+    register,
+    handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
-    defaultValues: { },
+    defaultValues: {
+      date: new Date(),
+    },
   });
 
   const { isPending, mutateAsync } = useMutation({
     mutationKey: ["transactions", "create"],
     mutationFn: async (params: FormData) => {
-      if(!newTransactionType) return null;
-
       const payload = {
         ...params,
         type: newTransactionType,
         value: currencyToNumber(params.value),
-      }
+      };
       await transactionService.create(payload);
-    }
+    },
   });
 
-  const handleCreateTransaction = handleFormSubmit(async(data) => {
+  const validatePassword = async () => {
     try {
-      // Calling
+      const passwordIsValid = await usersService.validatePassword(userPassword);
+
+      if(passwordIsValid) {
+        await handleCreateTransaction();
+      } else {
+        toast.error("Senha inválida. Tente novamente.");
+      }
+    } catch (error) {
+      toast.error("Senha inválida. Tente novamente.");
+    }
+  };
+
+  const handleOpenPasswordModal = async () => {
+    closeNewTransactionModal();
+
+    const isValid = await trigger();
+
+    if (isValid) {
+      setPasswordModalOpen(true);
+    }
+  };
+
+  const handleCreateTransaction = handleSubmit(async (data) => {
+    try {
       await mutateAsync(data);
 
-      // Close and reset modal
       reset({
         name: "",
         value: "",
@@ -87,27 +113,32 @@ export function useNewTransactionController() {
 
       closeNewTransactionModal();
 
-      toast.success(`${isExpense ? "Expense" : "Income"} transaction created successfully`);
-
       queryClient.invalidateQueries({ queryKey: ["transactions", "get-all"] });
-      queryClient.invalidateQueries({ queryKey: ["bank-accounts", "get-all"] });
+
+      toast.success(
+        `${isExpense ? "Despesa" : "Receita"} criada com sucesso.`
+      );
+
+      setPasswordModalOpen(false);
     } catch (error) {
-      toast.error(`${error}`);
+      toast.error("Erro ao criar transação.");
     }
   });
 
   return {
-    bankAccounts,
-    isFetchingBankAccounts,
-    //
     errors,
-    register,
     control,
-    isLoading: isPending,
-    handleCreateTransaction,
-    //
+    bankAccounts,
+    passwordModalOpen,
     newTransactionType,
+    isLoading: isPending,
     showNewTransactionModal,
+    //
+    register,
+    setUserPassword,
+    validatePassword,
+    setPasswordModalOpen,
     closeNewTransactionModal,
+    handleOpenPasswordModal,
   };
 }
