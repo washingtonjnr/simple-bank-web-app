@@ -28,7 +28,7 @@ export function useLoginController() {
     handleSubmit: hookFormHandleSubmit,
   } = useForm<FormData>({
     defaultValues: {
-      email: "johndoe@example.com",
+      // email: "johndoe@example.com",
       // password: "password123"
     },
     resolver: zodResolver(schema),

@@ -8,9 +8,7 @@ export function Logo({ className, color = "#d61f0a" }: LogoProps) {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="225.7821457821458 201.31859131859136 67.36281736281734 67.36281736281734"
-      width="100%"
-      height="100%"
-      style={{ maxWidth: 90, maxHeight: 90 }}
+      style={{ width: 90, height: 90 }}
       className={className}
     >
       <path

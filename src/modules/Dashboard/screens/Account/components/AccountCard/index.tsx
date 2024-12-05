@@ -17,7 +17,6 @@ export function AccountCard({ name, balance, showBalance, type }: CardProps) {
   return (
     <div className="h-[200px] flex flex-col justify-between border-b-4 border-red-950 p-4 gap-6 rounded-2xl overflow-hidden bg-white text-gray-800">
       <div>
-        {/* <BankAccountTypeIcon type={type} /> */}
         {type}
 
         <p className="mt-3 font-medium tracking-[-0.5px]">{name}</p>

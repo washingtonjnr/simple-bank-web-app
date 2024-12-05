@@ -25,14 +25,7 @@ export function TransactionDetailsModal() {
       onClose={closeEditTransactionModal}
     >
       <form className="text-left">
-        <div className="mt-4 flex flex-col gap-4">
-          {/* Nome da transação ou receita */}
-          <Input
-            readOnly
-            placeholder={isExpense ? "Nome da transação" : "Nome da receita"}
-            value={transaction.name}
-          />
-
+        <div className="flex flex-col gap-4">
           {/* Valor */}
           <div className="flex justify-center items-center gap-2">
             <small className="text-gray-600 tracking-[-0.5px] text-lg">
@@ -44,6 +37,13 @@ export function TransactionDetailsModal() {
               value={transaction.value}
             />
           </div>
+
+          {/* Nome da transação ou receita */}
+          <Input
+            readOnly
+            placeholder={isExpense ? "Nome da transação" : "Nome da receita"}
+            value={transaction.name}
+          />
 
           {/* Tipo de pagamento */}
           <Select

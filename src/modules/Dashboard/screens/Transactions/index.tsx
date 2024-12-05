@@ -113,7 +113,7 @@ export function Transactions() {
                   />
 
                   <span className="text-sm md:text-base text-gray-700">
-                    Nenhuma transação feita nesse período
+                    Nenhuma transação ocorreu nesse período
                   </span>
                 </div>
               )}

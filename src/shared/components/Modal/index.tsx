@@ -34,7 +34,7 @@ export function Modal({
 
         <Dialog.Content
           className={cn(
-            "w-4/5 max-w-96 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 space-y-10 rounded-2xl z-[51] bg-white shadow-lg outline-none",
+            "w-4/5 max-w-96 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 space-y-10 rounded-2xl z-[51] bg-white shadow-lg outline-none max-h-[90vh]",
             // animation
             "data-[state=open]:animate-fade-in",
             "data-[state=close]:animate-fade-out",
@@ -43,7 +43,12 @@ export function Modal({
         >
           <ModalHeader title={title} onClose={onClose} suffix={headerSuffix} />
 
-          <ModalContent>{children}</ModalContent>
+          <div
+            className="overflow-auto max-h-[60vh] pr-1"
+            style={{ overflowY: "auto" }}
+          >
+            <ModalContent>{children}</ModalContent>
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

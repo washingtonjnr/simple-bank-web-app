@@ -31,7 +31,7 @@ export function Register() {
         </p>
       </header>
 
-      <form className="mt-16 flex flex-col gap-4 px-10" onSubmit={handleSubmit}>
+      <form className="w-full flex flex-col gap-4 mt-4" onSubmit={handleSubmit}>
         <Input
           type="text"
           placeholder="Nome"

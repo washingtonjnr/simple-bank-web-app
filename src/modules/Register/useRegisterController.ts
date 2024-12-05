@@ -1,18 +1,18 @@
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-// Components
 import toast from "react-hot-toast";
-// Hooks
-// Services
-// Utils
-// Validations
-import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+// Hooks
 import { useAuth } from "../../core/hooks/useAuth";
+// Types
+import { RegisterRequest } from "./types/RegisterRequest";
+// Services
+import { registerService } from "./service/@index";
+// Utils
 import { LABEL_ERRORS } from "../../core/utils/labelErrors";
 import { isValidCNPJ, isValidCPF } from "../../core/utils/validations";
-import { registerService } from "./service/@index";
-import { RegisterRequest } from "./types/RegisterRequest";
+// Validations
 
 const schema = z.object({
   name: z.string().trim().nonempty(LABEL_ERRORS.EMPTY).min(2, LABEL_ERRORS.INVALID_NAME),

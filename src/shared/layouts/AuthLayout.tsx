@@ -1,26 +1,26 @@
-import { Outlet } from "react-router-dom";
 // Components
-import { Logo } from "../components/Logo";
 //
+import { Outlet } from "react-router-dom";
 import illustrationImg from "../assets/images/illustration.jpeg";
+import { Logo } from "../components/Logo";
 
 export function AuthLayout() {
   return (
-    <div className="w-full h-full flex">
-      <div className="w-full lg:w-1/2 px-2 gap-8 flex flex-col items-center justify-center bg-gray-50">
-        <Logo className="text-gray-500" />
-
-        <div className="w-full flex flex-col max-w-[504px] justify-center">
-          <Outlet></Outlet>
-        </div>
-      </div>
-
+    <div className="w-full h-full overflow-hidden flex">
       <div className="w-1/2 py-8 hidden lg:flex box-content justify-center items-center bg-white">
         <img
           src={illustrationImg}
           alt="mulher morena com franja mexendo no celular ao lado de um outro celular de 1 metro e meio de altura, com seu conteúdo sendo um banco"
           className="h-full  object-cover"
         />
+      </div>
+
+      <div className="w-full h-full lg:w-1/2 p-4 gap-8 bg-gray-50 flex justify-center overflow-auto ">
+        <div className="px-8 w-full max-w-[468px] flex-col items-center justify-center">
+          <Logo className="text-gray-500 mx-auto mb-4" />
+
+          <Outlet></Outlet>
+        </div>
       </div>
     </div>
   );
