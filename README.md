@@ -5,7 +5,7 @@
 <h1 align="center" style="font-weight: bold;">[Mag Bank]</h1>
 
 <p align="center">
-  <img src="/logo.svg" alt="Mag Bank logo" width="300px">
+  <img src=".github/logo.svg" alt="Mag Bank logo" width="300px">
 </p>
 
 ---
