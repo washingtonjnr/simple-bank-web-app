@@ -30,7 +30,7 @@ Certifique-se de ter instalado:
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/mag-bank.git
+   git clone https://github.com/washingtonjnr/simple-bank-web-app.git
    cd mag-bank
    ```
 
