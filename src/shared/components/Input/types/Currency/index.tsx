@@ -23,6 +23,7 @@ export function InputCurrency({
   return (
     <div className="relative">
       <NumericFormat
+        maxLength={10}
         defaultValue={value}
         thousandSeparator="."
         decimalSeparator=","

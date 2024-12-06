@@ -99,6 +99,7 @@ export function NewTransactionModal() {
 
           <div className="mt-4 flex flex-col gap-4">
             <Input
+              maxLength={50}
               placeholder={isExpense ? "Nome da transação" : "Nome da receita"}
               {...register("name")}
               error={errors.name?.message}
@@ -159,17 +160,21 @@ export function NewTransactionModal() {
 
             <Input
               placeholder="Banco"
+              max={3}
+              maxLength={3}
               {...register("bank")}
               error={errors.bank?.message}
             />
 
             <Input
               placeholder="Agência"
+              maxLength={12}
               {...register("agency")}
               error={errors.agency?.message}
             />
 
             <Input
+              maxLength={1}
               placeholder="Conta"
               {...register("account")}
               error={errors.account?.message}

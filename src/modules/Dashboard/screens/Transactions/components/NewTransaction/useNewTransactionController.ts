@@ -27,9 +27,9 @@ const schema = z.object({
   date: z.date({ required_error: LABEL_ERRORS.EMPTY }),
   document: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
   favoredName: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
-  bank: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
-  agency: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
-  account: z.string({ required_error: LABEL_ERRORS.EMPTY }).nonempty(LABEL_ERRORS.EMPTY),
+  bank: z.number({ required_error: LABEL_ERRORS.EMPTY }).min(3),
+  agency: z.number({ required_error: LABEL_ERRORS.EMPTY }).min(12),
+  account: z.number({ required_error: LABEL_ERRORS.EMPTY }).min(1),
   pixKey: z.string({ required_error: LABEL_ERRORS.EMPTY }),
 });
 
