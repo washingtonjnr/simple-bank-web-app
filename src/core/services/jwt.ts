@@ -18,7 +18,7 @@ async function decodeToken(token: string): Promise<JWTPayload> {
 
     return payload as JWTPayload;
   } catch (error) {
-    throw new Error("Invalid or expired token");
+    throw new Error("Token inválido ou expirado");
   }
 }
 

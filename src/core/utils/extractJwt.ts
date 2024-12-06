@@ -13,7 +13,7 @@ export async function getUserIdFromToken(): Promise<string> {
   const userId = decoded["id"];
 
   if (!userId) {
-    throw new Error("User ID not found in token");
+    throw new Error("Usuário inválido");
   }
 
   return userId as string;

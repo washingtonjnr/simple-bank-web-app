@@ -6,6 +6,13 @@
       "email": "wj@mag.com",
       "password": "washington",
       "document": "498.908.728-38 "
+    },
+    {
+      "id": "091e",
+      "name": "Carol",
+      "email": "carol@mag.com",
+      "password": "carol123",
+      "document": "521.708.558-40 "
     }
   ],
   "bankAccounts": [
@@ -13,40 +20,48 @@
       "id": "f313",
       "userId": "7a7b",
       "name": "Magnum Bank",
-      "currentBalance": 991,
+      "currentBalance": 0,
+      "type": "CHECKING",
+      "transactions": []
+    },
+    {
+      "id": "e475",
+      "userId": "091e",
+      "name": "Magnum Bank",
+      "currentBalance": 987.75,
       "type": "CHECKING",
       "transactions": []
     }
   ],
   "transactions": [
     {
-      "id": "db5a",
-      "bankAccountId": "f313",
+      "id": "4134",
+      "bankAccountId": "e475",
       "name": "Farmácia",
-      "value": 8,
+      "value": 12.25,
       "paymentType": "PIX",
-      "date": "2024-12-05T22:07:29.652Z",
+      "date": "2024-12-06T23:14:48.623Z",
       "document": "498.908.728-38 ",
-      "favoredName": "Sérgio Sei Lá",
-      "bank": "4565465",
-      "agency": "56465465",
-      "account": "45645",
+      "favoredName": "João",
+      "bank": "4654",
+      "agency": "654654",
+      "account": "65465",
       "pixKey": "",
       "type": "EXPENSE",
-      "userId": "7a7b"
+      "userId": "091e"
     },
     {
-      "id": "a6f4",
+      "id": "8764",
       "bankAccountId": "f313",
-      "name": "Teste",
-      "value": 1,
+      "name": "Mercado",
+      "value": 10000,
       "paymentType": "PIX",
-      "date": "2024-12-05T22:08:15.969Z",
+      "date": "2024-12-06T23:22:24.437Z",
       "document": "498.908.728-38 ",
-      "favoredName": "Zé Ninguém",
-      "bank": "564654",
-      "agency": "56465",
-      "account": "54646",
+      "favoredName": "das dasd",
+      "bank": "4654",
+      "agency": "5465",
+      "account": "4564",
       "pixKey": "",
       "type": "EXPENSE",
       "userId": "7a7b"

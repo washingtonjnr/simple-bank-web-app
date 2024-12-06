@@ -7,6 +7,13 @@ import { TransactionRequest } from "../types/transactionRequest";
 export async function create(payload: TransactionRequest) {
   const userId = await getUserIdFromToken();
 
+  const banks = await bankAccountService.getAll();
+  const currentBank = banks[0];
+
+  if(currentBank.currentBalance < payload.value) {
+    throw new Error("O valor informado é maior do que seu saldo");
+  }
+
   await bankAccountService.updateBankAccountBalance(
     payload.bankAccountId,
     payload.value,

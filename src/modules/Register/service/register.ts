@@ -8,12 +8,20 @@ import { RegisterResponse } from "../types/RegisterResponse";
 export async function register(params: RegisterRequest): Promise<{ accessToken: string }> {
   const { email, document } = params;
 
-  const { data: existingUsers } = await api.get<RegisterResponse[]>("/users", {
-    params: { email, document },
+  const { data: existingEmailUser } = await api.get<RegisterResponse[]>("/users", {
+    params: { email },
   });
 
-  if (existingUsers && existingUsers.length > 0) {
-    throw new Error("Já existe um usuário com o e-mail ou CPF informado.");
+  if (existingEmailUser && existingEmailUser.length > 0) {
+    throw new Error("Já existe um usuário com o e-mail.");
+  }
+
+  const { data: existingCPFUser } = await api.get<RegisterResponse[]>("/users", {
+    params: { document },
+  });
+
+  if (existingCPFUser && existingCPFUser.length > 0) {
+    throw new Error("Já existe um usuário com o CPF ou CNPJ informado.");
   }
 
   try {

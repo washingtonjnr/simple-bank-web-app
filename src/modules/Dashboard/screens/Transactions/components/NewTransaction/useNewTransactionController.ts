@@ -129,7 +129,7 @@ export function useNewTransactionController() {
 
       setPasswordModalOpen(false);
     } catch (error) {
-      toast.error("Erro ao criar transação.");
+      toast.error((error as Error).message || "Erro ao criar transação.");
     }
   });
 

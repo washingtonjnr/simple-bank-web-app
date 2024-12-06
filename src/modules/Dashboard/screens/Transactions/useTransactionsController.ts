@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 // Context
 import { useDashboard } from "../../hook/useDashboard";
-// Hook
 // Type
 import { useAccountTransactions } from "./hooks/useAccountTransactions";
 import { useTransactions } from "./hooks/useTransactions";
